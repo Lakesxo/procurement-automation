@@ -36,6 +36,7 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
   const updatedData = objectData.data.filter(
     (order: PurchaseOrderDetails) => order.purchase_order_id !== req.query.id
   );
+  console.log(dataFilePath);
   await fsPromises.writeFile(
     dataFilePath,
     JSON.stringify({ data: updatedData })
